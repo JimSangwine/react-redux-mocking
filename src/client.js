@@ -6,14 +6,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
+import MockedApi from '../mocks/MockedApi';
 import io from 'socket.io-client';
 import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { ReduxAsyncConnect } from 'redux-async-connect';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
+import config from './config';
 
 import getRoutes from './routes';
+
+if (!config.isProduction) {
+  MockedApi.init();
+}
 
 const client = new ApiClient();
 const _browserHistory = useScroll(() => browserHistory)();

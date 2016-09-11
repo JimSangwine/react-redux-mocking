@@ -89,7 +89,8 @@ module.exports = {
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
-      { test: webpackIsomorphicToolsPlugin.regular_expression('images'), loader: 'url-loader?limit=10240' }
+      { test: webpackIsomorphicToolsPlugin.regular_expression('images'), loader: 'url-loader?limit=10240' },
+      { test: /sinon.*\.js$/,   loader: "imports?define=>false,require=>false" } // https://github.com/webpack/webpack/issues/177
     ]
   },
   progress: true,
@@ -98,8 +99,10 @@ module.exports = {
       'src',
       'node_modules'
     ],
-    extensions: ['', '.json', '.js', '.jsx']
+    extensions: ['', '.json', '.js', '.jsx'],
+    alias: { sinon: 'sinon/pkg/sinon' } // https://github.com/webpack/webpack/issues/177
   },
+  noParse: [/sinon/], // https://github.com/webpack/webpack/issues/177
   plugins: [
     // hot reload
     new webpack.HotModuleReplacementPlugin(),

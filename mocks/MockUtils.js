@@ -1,4 +1,9 @@
 export default class MockUtils {
+  /**
+   * Looks in the querystring for the window for a mock override (e.g. ?some/path=mockName)
+   * @param {string} path
+   * @returns {*}
+   */
   static getMockOverride(path) {
     const href = (typeof window !== 'undefined') ? window.location.href : '';
     const reg = new RegExp('[?&]' + path + '=([^&#]*)', 'i');
@@ -22,6 +27,11 @@ export default class MockUtils {
     };
   }
 
+  /**
+   * Generates a request handler for a given path
+   * @param {string} _path
+   * @returns {requestHandler}
+   */
   static getRequestHandler(_path) {
     const path = _path;
     const mockOverride = this.getMockOverride(path);

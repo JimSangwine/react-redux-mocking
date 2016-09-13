@@ -1,0 +1,14 @@
+{
+  "name": "sinon-api-mocking",
+  "version": "1.0.0",
+  "description": "Simple front end API mocking using Sinon",
+  "main": "MockedApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jim Sangwine <jim@sangwine.net> (http://sangwine.net)",
+  "license": "ISC",
+  "devDependencies": {
+    "sinon": "^1.17.5"
+  }
+}

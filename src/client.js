@@ -17,6 +17,7 @@ import config from './config';
 
 import getRoutes from './routes';
 
+// ENABLE API MOCKING
 if (!config.isProduction) {
   MockedApi.init();
 }

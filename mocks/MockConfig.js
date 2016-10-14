@@ -1,10 +1,10 @@
 const MockConfig = {
   /** The root path for all API calls (e.g. '/api/') */
-  apiPath: '/cop/',
+  apiPath: '/api/',
 
   environmentsToMockOn: [
-    // 'ukvadapp004',
-    // 'ukvadapp005',
+    // 'sometesthost004',
+    // 'sometesthost005',
     'localhost'
   ],
   /** A list of endpoints to mock */
